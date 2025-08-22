@@ -53,58 +53,56 @@
       letter-spacing: 1px;
     }
 
-  .toggle-container {
-  display: inline-flex;
-  background: var(--bg); /* match black background */
-  border-radius: 0; /* container square to prevent white edges */
-  overflow: hidden;
-  cursor: pointer;
-}
 
-.toggle-btn {
-  padding: 0.5rem 1.5rem;
-  background: var(--bg);
-  color: var(--fg);
-  border: none;
-  outline: none; /* remove default outline */
-  font-size: 0.9rem;
-  font-weight: bold;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s, color 0.3s; /* keep your original transition */
-}
+.toggle-container {
+    display: inline-flex;
+    background: var(--bg);
+    border-radius: 0;
+    overflow: hidden;
+    cursor: pointer;
+  }
 
-.toggle-btn span {
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
+  .toggle-btn {
+    padding: 0.1rem 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--fg);
+    border: none;
+    outline: none;
+    transition: background 0.3s, color 0.3s, border-radius 0.3s;
+  }
 
-.toggle-btn:hover span {
-  transform: scale(1.1); /* only scales the text */
-}
+  /* Active button rounding */
+  .toggle-btn.active[data-source="vimeo"] {
+    background: var(--highlight);
+    color: var(--bg);
+    border-radius: 25px 0 0 25px;
+  }
 
+  .toggle-btn.active[data-source="youtube"] {
+    background: var(--highlight);
+    color: var(--bg);
+    border-radius: 0 25px 25px 0;
+  }
 
-/* Left button active (red, rounded on left) */
-.toggle-btn.active[data-source="vimeo"] {
-  background: var(--highlight);
-  color: var(--bg);
-  border-radius: 25px 0 0 25px; /* only left side rounded */
-}
+  /* Hover effect */
+  .toggle-btn:hover {
+    background: var(--highlight);
+    color: var(--bg);
+  }
 
-/* Right button active (red, rounded on right) */
-.toggle-btn.active[data-source="youtube"] {
-  background: var(--highlight);
-  color: var(--bg);
-  border-radius: 0 25px 25px 0; /* only right side rounded */
-}
+  /* Hover rounding only on hovered button */
+  .toggle-btn:hover[data-source="vimeo"] {
+    border-radius: 25px 5px 5px 25px;
+  }
 
-/* Inactive buttons */
-.toggle-btn:not(.active) {
-  background: var(--bg); /* solid black */
-  color: var(--fg);
-  border-radius: 0; /* completely square */
-}
+  .toggle-btn:hover[data-source="youtube"] {
+    border-radius: 5px 25px 25px 5px;
+  }
 
 
 
