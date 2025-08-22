@@ -19,287 +19,159 @@
       --highlight: #ff0000;
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: "Courier New", Courier, monospace;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-    }
-
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: "Courier New", Courier, monospace; }
     a { color: var(--fg); text-decoration: none; transition: color 0.3s ease; }
     a:hover { color: var(--highlight); }
 
-    header {
-      padding: 2.5rem 1rem 1.25rem;
-      text-align: center;
-    }
+    header { padding: 2.5rem 1rem 1.25rem; text-align: center; }
+    header video { width: 160px; max-width: 40vw; border-radius: 50%; display: block; margin: 0 auto; }
+    h1 { margin: 0.8rem 0 0; font-weight: 400; font-size: 2rem; letter-spacing: 1px; }
 
-    header video {
-      width: 160px;
-      max-width: 40vw;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto;
-    }
+    .toggle-btn { padding: 0.3rem 0.9rem; font-size: 0.8rem; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; background: var(--bg); color: var(--fg); border: none; cursor: pointer; transition: all 0.3s; }
+    .toggle-btn.active[data-source="vimeo"] { background: var(--highlight); color: var(--bg); border-radius: 25px 0 0 25px; }
+    .toggle-btn.active[data-source="youtube"] { background: var(--highlight); color: var(--bg); border-radius: 0 25px 25px 0; }
+    .toggle-btn:hover { background: var(--highlight); color: var(--bg); }
+    .toggle-btn:hover[data-source="vimeo"] { border-radius: 25px 5px 5px 25px; }
+    .toggle-btn:hover[data-source="youtube"] { border-radius: 5px 25px 25px 5px; }
 
-    h1 {
-      margin: 0.8rem 0 0;
-      font-weight: 400;
-      font-size: 2rem;
-      letter-spacing: 1px;
-    }
-
-
-.toggle-container {
-    display: inline-flex;
-    background: var(--bg);
-    border-radius: 0;
-    overflow: hidden;
-    cursor: pointer;
-  }
-
-  .toggle-btn {
-    padding: 0.1rem 0.5rem;
-    font-size: 0.8rem;
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg);
-    color: var(--fg);
-    border: none;
-    outline: none;
-    transition: background 0.3s, color 0.3s, border-radius 0.3s;
-  }
-
-  /* Active button rounding */
-  .toggle-btn.active[data-source="vimeo"] {
-    background: var(--highlight);
-    color: var(--bg);
-    border-radius: 25px 0 0 25px;
-  }
-
-  .toggle-btn.active[data-source="youtube"] {
-    background: var(--highlight);
-    color: var(--bg);
-    border-radius: 0 25px 25px 0;
-  }
-
-  /* Hover effect */
-  .toggle-btn:hover {
-    background: var(--highlight);
-    color: var(--bg);
-  }
-
-  /* Hover rounding only on hovered button */
-  .toggle-btn:hover[data-source="vimeo"] {
-    border-radius: 25px 5px 5px 25px;
-  }
-
-  .toggle-btn:hover[data-source="youtube"] {
-    border-radius: 5px 25px 25px 5px;
-  }
-
-
-
-    .social {
-      margin: 1.2rem 0 0;
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      align-items: center;
-    }
-
+    .social { margin: 1.2rem 0 0; display: flex; gap: 14px; justify-content: center; align-items: center; }
     .social a { font-size: 1.25rem; transition: transform .2s ease; }
     .social a:hover { transform: scale(1.1); color: var(--highlight); }
 
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2.25rem 1rem 3rem;
-    }
-
-    .grid {
-      display: grid;
-      gap: 1.75rem;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    }
-
-    figure { margin: 0; }
-
-    .video {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 */
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform .25s ease;
-    }
-
+    main { max-width: 1200px; margin: 0 auto; padding: 2.25rem 1rem 3rem; }
+    .grid { display: grid; gap: 1.75rem; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+    figure { margin: 0; cursor: pointer; }
+    .video { position: relative; width: 100%; padding-top: 56.25%; border-radius: 8px; overflow: hidden; transition: transform .25s ease; }
     .video:hover { transform: scale(1.015); }
-
-    .video iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-
-    figcaption {
-      text-align: left;
-      margin-top: .45rem;
-      font-size: .78rem;
-      line-height: 1.35;
-      color: var(--muted);
-      letter-spacing: .4px;
-      font-weight: 400;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2.5rem 1rem 3rem;
-      font-size: .9rem;
-      color: var(--muted);
-    }
-
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    figcaption { text-align: left; margin-top: .45rem; font-size: .78rem; line-height: 1.35; color: var(--muted); letter-spacing: .4px; font-weight: 400; }
+    footer { text-align: center; padding: 2.5rem 1rem 3rem; font-size: .9rem; color: var(--muted); }
     footer a { color: var(--fg); transition: color 0.3s ease; }
     footer a:hover { color: var(--highlight); }
+
+    /* Lightbox */
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; z-index: 9999; }
+    .lightbox.active { display: flex; }
+    .lightbox iframe { width: 80%; height: 80%; max-width: 1200px; max-height: 80%; border: none; border-radius: 8px; }
   </style>
 </head>
 <body>
 
-  <header>
-    <video src="https://media.giphy.com/media/j24wuQdr9wSyZCw41B/source.mov" autoplay muted loop playsinline poster="https://i.imgur.com/RZMuaPu.jpg"></video>
-    <h1>Anatole Pigot</h1>
+<header>
+  <video src="https://media.giphy.com/media/j24wuQdr9wSyZCw41B/source.mov" autoplay muted loop playsinline poster="https://i.imgur.com/RZMuaPu.jpg"></video>
+  <h1>Anatole Pigot</h1>
 
-   
+  <div class="social">
+    <a href="https://instagram.com/anatolepigot" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://youtube.com/anatolepigot" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://vimeo.com/anatolepigot" target="_blank"><i class="fab fa-vimeo"></i></a>
+    <a href="https://linkedin.com/in/anatolepigot" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
 
-    <div class="social">
-      <a href="https://instagram.com/anatolepigot" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://youtube.com/anatolepigot" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://vimeo.com/anatolepigot" target="_blank" title="Vimeo"><i class="fab fa-vimeo"></i></a>
-      <a href="https://linkedin.com/in/anatolepigot" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <br>
-<button class="toggle-btn active" data-source="vimeo"><span>Vimeo</span></button>
-<button class="toggle-btn" data-source="youtube"><span>YouTube</span></button>
+  <div class="toggle-container" style="margin-top:1rem;">
+    <button class="toggle-btn active" data-source="vimeo">Vimeo</button>
+    <button class="toggle-btn" data-source="youtube">YouTube</button>
+  </div>
+</header>
 
-    
-  </header>
+<main>
+  <section class="grid">
+    <figure class="reveal" data-vimeo="996249538" data-youtube="3l-xicaLQ3k">
+      <div class="video">
+        <iframe class="vimeo" src="https://player.vimeo.com/video/996249538?title=0&byline=0&portrait=0&dnt=1"></iframe>
+        <iframe class="youtube" src="https://www.youtube.com/embed/3l-xicaLQ3k?rel=0&showinfo=0" style="display:none;"></iframe>
+      </div>
+      <figcaption>Bande Démo 2024</figcaption>
+    </figure>
 
-  <main>
-    <section class="grid">
-      <figure class="reveal">
-        <div class="video">
-          <iframe class="vimeo" src="https://player.vimeo.com/video/996249538?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          <iframe class="youtube" src="https://www.youtube.com/embed/3l-xicaLQ3k?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
-        </div>
-        <figcaption>Bande Démo 2024</figcaption>
-      </figure>
+    <figure class="reveal" data-vimeo="879492028" data-youtube="6XjhA9S3inM">
+      <div class="video">
+        <iframe class="vimeo" src="https://player.vimeo.com/video/879492028?title=0&byline=0&portrait=0&dnt=1"></iframe>
+        <iframe class="youtube" src="https://www.youtube.com/embed/6XjhA9S3inM?rel=0&showinfo=0" style="display:none;"></iframe>
+      </div>
+      <figcaption>Rediffusion</figcaption>
+    </figure>
 
-      <figure class="reveal">
-        <div class="video">
-          <iframe class="vimeo" src="https://player.vimeo.com/video/879492028?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          <iframe class="youtube" src="https://www.youtube.com/embed/6XjhA9S3inM?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
-        </div>
-        <figcaption>Rediffusion</figcaption>
-      </figure>
+    <figure class="reveal" data-vimeo="369929125" data-youtube="vnfdceFicUs">
+      <div class="video">
+        <iframe class="vimeo" src="https://player.vimeo.com/video/369929125?title=0&byline=0&portrait=0&dnt=1"></iframe>
+        <iframe class="youtube" src="https://www.youtube.com/embed/vnfdceFicUs?rel=0&showinfo=0" style="display:none;"></iframe>
+      </div>
+      <figcaption>Upyr</figcaption>
+    </figure>
 
-      <figure class="reveal">
-        <div class="video">
-          <iframe class="vimeo" src="https://player.vimeo.com/video/369929125?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          <iframe class="youtube" src="https://www.youtube.com/embed/vnfdceFicUs?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
-        </div>
-        <figcaption>Upyr</figcaption>
-      </figure>
+    <figure class="reveal" data-vimeo="290494910" data-youtube="6_xYbUtrFTI">
+      <div class="video">
+        <iframe class="vimeo" src="https://player.vimeo.com/video/290494910?title=0&byline=0&portrait=0&dnt=1"></iframe>
+        <iframe class="youtube" src="https://www.youtube.com/embed/6_xYbUtrFTI?rel=0&showinfo=0" style="display:none;"></iframe>
+      </div>
+      <figcaption>Ricardo</figcaption>
+    </figure>
 
-      <figure class="reveal">
-        <div class="video">
-          <iframe class="vimeo" src="https://player.vimeo.com/video/290494910?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          <iframe class="youtube" src="https://www.youtube.com/embed/6_xYbUtrFTI?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
-        </div>
-        <figcaption>Ricardo</figcaption>
-      </figure>
+    <figure class="reveal" data-vimeo="262408008" data-youtube="zeFAMPWv9sE">
+      <div class="video">
+        <iframe class="vimeo" src="https://player.vimeo.com/video/262408008?title=0&byline=0&portrait=0&dnt=1"></iframe>
+        <iframe class="youtube" src="https://www.youtube.com/embed/zeFAMPWv9sE?rel=0&showinfo=0" style="display:none;"></iframe>
+      </div>
+      <figcaption>Hexameron</figcaption>
+    </figure>
 
-      <figure class="reveal">
-        <div class="video">
-          <iframe class="vimeo" src="https://player.vimeo.com/video/262408008?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          <iframe class="youtube" src="https://www.youtube.com/embed/zeFAMPWv9sE?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
-        </div>
-        <figcaption>Hexameron</figcaption>
-      </figure>
+    <figure class="reveal" data-vimeo="244061149" data-youtube="itzA45FQWhU">
+      <div class="video">
+        <iframe class="vimeo" src="https://player.vimeo.com/video/244061149?title=0&byline=0&portrait=0&dnt=1"></iframe>
+        <iframe class="youtube" src="https://www.youtube.com/embed/itzA45FQWhU?rel=0&showinfo=0" style="display:none;"></iframe>
+      </div>
+      <figcaption>The Abducter</figcaption>
+    </figure>
 
-      <figure class="reveal">
-        <div class="video">
-          <iframe class="vimeo" src="https://player.vimeo.com/video/244061149?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          <iframe class="youtube" src="https://www.youtube.com/embed/itzA45FQWhU?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
-        </div>
-        <figcaption>The Abducter</figcaption>
-      </figure>
+  </section>
+</main>
 
-      <figure class="reveal">
-        <div class="video">
-          <iframe class="vimeo" src="https://player.vimeo.com/video/219179436?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          <iframe class="youtube" src="https://www.youtube.com/embed/moIgi1SBv4k?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
-        </div>
-        <figcaption>3010 - Gauche Droite</figcaption>
-      </figure>
+<div class="lightbox" id="lightbox">
+  <iframe src="" allowfullscreen></iframe>
+</div>
 
-      <figure class="reveal">
-        <div class="video">
-          <iframe class="vimeo" src="https://player.vimeo.com/video/214662026?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          <iframe class="youtube" src="https://www.youtube.com/embed/4_kAQOBxFUM?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
-        </div>
-        <figcaption>Bande Démo 2018</figcaption>
-      </figure>
+<footer>
+  <p>&copy; 2025 Anatole Pigot. All rights reserved.</p>
+</footer>
 
-      <figure class="reveal">
-        <div class="video">
-          <iframe class="vimeo" src="https://player.vimeo.com/video/214624017?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          <iframe class="youtube" src="https://www.youtube.com/embed/h_7FnmO6QAY?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
-        </div>
-        <figcaption>3010 - Z</figcaption>
-      </figure>
+<script>
+const buttons = document.querySelectorAll('.toggle-btn');
+const lightbox = document.getElementById('lightbox');
+const lightboxIframe = lightbox.querySelector('iframe');
 
-    </section>
-  </main>
-
-  <footer>
-    <p>contact: <a href="mailto:anatolepigot@gmail.com">anatolepigot@gmail.com</a></p>
-    <p>&copy; 2025 Anatole Pigot</p>
-  </footer>
-
-  <script>
-    // Scroll reveal
-    if (window.ScrollReveal) {
-      ScrollReveal().reveal('.reveal', {
-        delay: 120,
-        duration: 800,
-        distance: '30px',
-        easing: 'ease-out',
-        origin: 'bottom',
-        interval: 100
-      });
-    }
-
-    // Toggle Vimeo / YouTube
-    const buttons = document.querySelectorAll('.toggle-btn');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const source = btn.dataset.source;
-        document.querySelectorAll('.vimeo').forEach(v => v.style.display = source === 'vimeo' ? 'block' : 'none');
-        document.querySelectorAll('.youtube').forEach(y => y.style.display = source === 'youtube' ? 'block' : 'none');
-      });
+// Toggle Vimeo / YouTube
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const source = btn.dataset.source;
+    document.querySelectorAll('figure').forEach(fig => {
+      fig.querySelector('.vimeo').style.display = source === 'vimeo' ? 'block' : 'none';
+      fig.querySelector('.youtube').style.display = source === 'youtube' ? 'block' : 'none';
     });
-  </script>
+  });
+});
+
+// Lightbox click
+document.querySelectorAll('figure').forEach(fig => {
+  fig.addEventListener('click', () => {
+    const source = document.querySelector('.toggle-btn.active').dataset.source;
+    const id = fig.dataset[source];
+    const url = source === 'vimeo'
+      ? `https://player.vimeo.com/video/${id}?autoplay=1`
+      : `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+    lightboxIframe.src = url;
+    lightbox.classList.add('active');
+  });
+});
+
+// Close lightbox
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+  lightboxIframe.src = '';
+});
+</script>
+
 </body>
 </html>
-
