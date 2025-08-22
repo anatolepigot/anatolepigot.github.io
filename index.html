@@ -53,6 +53,61 @@
       letter-spacing: 1px;
     }
 
+  .toggle-container {
+  display: inline-flex;
+  background: var(--bg); /* match black background */
+  border-radius: 0; /* container square to prevent white edges */
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.toggle-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--bg);
+  color: var(--fg);
+  border: none;
+  outline: none; /* remove default outline */
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, color 0.3s; /* keep your original transition */
+}
+
+.toggle-btn span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.toggle-btn:hover span {
+  transform: scale(1.1); /* only scales the text */
+}
+
+
+/* Left button active (red, rounded on left) */
+.toggle-btn.active[data-source="vimeo"] {
+  background: var(--highlight);
+  color: var(--bg);
+  border-radius: 25px 0 0 25px; /* only left side rounded */
+}
+
+/* Right button active (red, rounded on right) */
+.toggle-btn.active[data-source="youtube"] {
+  background: var(--highlight);
+  color: var(--bg);
+  border-radius: 0 25px 25px 0; /* only right side rounded */
+}
+
+/* Inactive buttons */
+.toggle-btn:not(.active) {
+  background: var(--bg); /* solid black */
+  color: var(--fg);
+  border-radius: 0; /* completely square */
+}
+
+
+
     .social {
       margin: 1.2rem 0 0;
       display: flex;
@@ -120,81 +175,100 @@
   </style>
 </head>
 <body>
+
   <header>
     <video src="https://media.giphy.com/media/j24wuQdr9wSyZCw41B/source.mov" autoplay muted loop playsinline poster="https://i.imgur.com/RZMuaPu.jpg"></video>
     <h1>Anatole Pigot</h1>
+
+   
+
     <div class="social">
       <a href="https://instagram.com/anatolepigot" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="https://youtube.com/anatolepigot" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
       <a href="https://vimeo.com/anatolepigot" target="_blank" title="Vimeo"><i class="fab fa-vimeo"></i></a>
       <a href="https://linkedin.com/in/anatolepigot" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
     </div>
+    <br>
+<button class="toggle-btn active" data-source="vimeo"><span>Vimeo</span></button>
+<button class="toggle-btn" data-source="youtube"><span>YouTube</span></button>
+
+    
   </header>
 
   <main>
     <section class="grid">
       <figure class="reveal">
         <div class="video">
-          <iframe src="https://player.vimeo.com/video/996249538?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="vimeo" src="https://player.vimeo.com/video/996249538?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="youtube" src="https://www.youtube.com/embed/3l-xicaLQ3k?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
         </div>
         <figcaption>Bande Démo 2024</figcaption>
       </figure>
 
       <figure class="reveal">
         <div class="video">
-          <iframe src="https://player.vimeo.com/video/879492028?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="vimeo" src="https://player.vimeo.com/video/879492028?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="youtube" src="https://www.youtube.com/embed/6XjhA9S3inM?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
         </div>
         <figcaption>Rediffusion</figcaption>
       </figure>
 
       <figure class="reveal">
         <div class="video">
-          <iframe src="https://player.vimeo.com/video/369929125?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="vimeo" src="https://player.vimeo.com/video/369929125?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="youtube" src="https://www.youtube.com/embed/vnfdceFicUs?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
         </div>
         <figcaption>Upyr</figcaption>
       </figure>
 
       <figure class="reveal">
         <div class="video">
-          <iframe src="https://player.vimeo.com/video/290494910?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="vimeo" src="https://player.vimeo.com/video/290494910?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="youtube" src="https://www.youtube.com/embed/6_xYbUtrFTI?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
         </div>
         <figcaption>Ricardo</figcaption>
       </figure>
 
       <figure class="reveal">
         <div class="video">
-          <iframe src="https://player.vimeo.com/video/262408008?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="vimeo" src="https://player.vimeo.com/video/262408008?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="youtube" src="https://www.youtube.com/embed/zeFAMPWv9sE?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
         </div>
         <figcaption>Hexameron</figcaption>
       </figure>
 
       <figure class="reveal">
         <div class="video">
-          <iframe src="https://player.vimeo.com/video/244061149?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="vimeo" src="https://player.vimeo.com/video/244061149?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="youtube" src="https://www.youtube.com/embed/itzA45FQWhU?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
         </div>
         <figcaption>The Abducter</figcaption>
       </figure>
 
       <figure class="reveal">
         <div class="video">
-          <iframe src="https://player.vimeo.com/video/219179436?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="vimeo" src="https://player.vimeo.com/video/219179436?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="youtube" src="https://www.youtube.com/embed/moIgi1SBv4k?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
         </div>
         <figcaption>3010 - Gauche Droite</figcaption>
       </figure>
 
       <figure class="reveal">
         <div class="video">
-          <iframe src="https://player.vimeo.com/video/214662026?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="vimeo" src="https://player.vimeo.com/video/214662026?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="youtube" src="https://www.youtube.com/embed/4_kAQOBxFUM?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
         </div>
         <figcaption>Bande Démo 2018</figcaption>
       </figure>
 
       <figure class="reveal">
         <div class="video">
-          <iframe src="https://player.vimeo.com/video/214624017?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="vimeo" src="https://player.vimeo.com/video/214624017?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="youtube" src="https://www.youtube.com/embed/h_7FnmO6QAY?rel=0&showinfo=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
         </div>
         <figcaption>3010 - Z</figcaption>
       </figure>
+
     </section>
   </main>
 
@@ -204,6 +278,7 @@
   </footer>
 
   <script>
+    // Scroll reveal
     if (window.ScrollReveal) {
       ScrollReveal().reveal('.reveal', {
         delay: 120,
@@ -214,6 +289,19 @@
         interval: 100
       });
     }
+
+    // Toggle Vimeo / YouTube
+    const buttons = document.querySelectorAll('.toggle-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const source = btn.dataset.source;
+        document.querySelectorAll('.vimeo').forEach(v => v.style.display = source === 'vimeo' ? 'block' : 'none');
+        document.querySelectorAll('.youtube').forEach(y => y.style.display = source === 'youtube' ? 'block' : 'none');
+      });
+    });
   </script>
 </body>
 </html>
+
