@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anatole Pigot</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Scroll reveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <style>
+    :root {
+      --bg: #000;
+      --fg: #fff;
+      --muted: #b7b7b7;
+      --highlight: #ff0000;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Courier New", Courier, monospace;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: var(--fg); text-decoration: none; transition: color 0.3s ease; }
+    a:hover { color: var(--highlight); }
+
+    header {
+      padding: 2.5rem 1rem 1.25rem;
+      text-align: center;
+    }
+
+    header video {
+      width: 160px;
+      max-width: 40vw;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0.8rem 0 0;
+      font-weight: 400;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .social {
+      margin: 1.2rem 0 0;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .social a { font-size: 1.25rem; transition: transform .2s ease; }
+    .social a:hover { transform: scale(1.1); color: var(--highlight); }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.25rem 1rem 3rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    figure { margin: 0; }
+
+    .video {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform .25s ease;
+    }
+
+    .video:hover { transform: scale(1.015); }
+
+    .video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    figcaption {
+      text-align: left;
+      margin-top: .45rem;
+      font-size: .78rem;
+      line-height: 1.35;
+      color: var(--muted);
+      letter-spacing: .4px;
+      font-weight: 400;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem 3rem;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--fg); transition: color 0.3s ease; }
+    footer a:hover { color: var(--highlight); }
+  </style>
+</head>
+<body>
+  <header>
+    <video src="https://media.giphy.com/media/j24wuQdr9wSyZCw41B/source.mov" autoplay muted loop playsinline poster="https://i.imgur.com/RZMuaPu.jpg"></video>
+    <h1>Anatole Pigot</h1>
+    <div class="social">
+      <a href="https://instagram.com/anatolepigot" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/anatolepigot" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://vimeo.com/anatolepigot" target="_blank" title="Vimeo"><i class="fab fa-vimeo"></i></a>
+      <a href="https://linkedin.com/in/anatolepigot" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid">
+      <figure class="reveal">
+        <div class="video">
+          <iframe src="https://player.vimeo.com/video/996249538?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption>Bande Démo 2024</figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="video">
+          <iframe src="https://player.vimeo.com/video/879492028?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption>Rediffusion</figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="video">
+          <iframe src="https://player.vimeo.com/video/369929125?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption>Upyr</figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="video">
+          <iframe src="https://player.vimeo.com/video/290494910?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption>Ricardo</figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="video">
+          <iframe src="https://player.vimeo.com/video/262408008?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption>Hexameron</figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="video">
+          <iframe src="https://player.vimeo.com/video/244061149?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption>The Abducter</figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="video">
+          <iframe src="https://player.vimeo.com/video/219179436?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption>3010 - Gauche Droite</figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="video">
+          <iframe src="https://player.vimeo.com/video/214662026?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption>Bande Démo 2018</figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="video">
+          <iframe src="https://player.vimeo.com/video/214624017?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption>3010 - Z</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer>
+    <p>contact: <a href="mailto:anatolepigot@gmail.com">anatolepigot@gmail.com</a></p>
+    <p>&copy; 2025 Anatole Pigot</p>
+  </footer>
+
+  <script>
+    if (window.ScrollReveal) {
+      ScrollReveal().reveal('.reveal', {
+        delay: 120,
+        duration: 800,
+        distance: '30px',
+        easing: 'ease-out',
+        origin: 'bottom',
+        interval: 100
+      });
+    }
+  </script>
+</body>
+</html>
